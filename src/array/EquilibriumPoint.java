@@ -1,12 +1,16 @@
 package array;
 
+import java.util.Arrays;
+
 public class EquilibriumPoint {
     public static void main(String[] args) {
-        int[] arr = {4,2,-2};
+        int[] arr = {3,4,8,-9,9,7};
         System.out.println(getPoint(arr,arr.length));
+
+        System.out.println( getPoint2(arr,arr.length));
     }
 
-    static int getPoint(int[] arr, int n){
+    static boolean getPoint(int[] arr, int n){
         int sum = 0;
 
         for (int i = 0; i < n; i++){
@@ -16,12 +20,34 @@ public class EquilibriumPoint {
             }
 
             if(sum == sumJ){
-                return i;
+                return true;
             }else {
                 sum+= arr[i];
             }
         }
 
-        return -1;
+        return false;
+    }
+
+    static boolean getPoint2(int[] arr, int n){
+        int totalSum = arr[0];
+
+        for (int i = 1; i < n; i++) {
+            totalSum += arr[i];
+        }
+
+        int leftSum = 0;
+
+        for (int i = 0; i < n; i++) {
+            totalSum -= arr[i];
+            if(totalSum ==leftSum){
+                return true;
+            }
+            leftSum+=arr[i];
+
+        }
+
+
+        return false;
     }
 }
