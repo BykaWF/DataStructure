@@ -2,9 +2,9 @@ package serching;
 
 public class CountOccur {
     public static void main(String[] args) {
-        int[] arr ={ 10, 20,20,20,40,40};
+        int[] arr ={ 0,0,1,1,1};
 
-        System.out.println(countOccur(arr, arr.length, 20));
+        System.out.println(countOccur(arr, arr.length, 1));
     }
 
     static int countOccur(int[] arr,int n, int x){
