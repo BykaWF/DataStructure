@@ -40,16 +40,17 @@ public class LastOccur {
             if(arr[mid] > x){
                 end = mid - 1;
             }
-
-            if(arr[mid] < x){
+            else if(arr[mid] < x){
                 start = mid + 1;
-            }
-
-            if(mid == n - 1 || arr[mid] != arr[mid + 1]){
-                return mid;
             }else {
-                start = mid + 1;
+                if(mid == n - 1 || arr[mid] != arr[mid + 1]){
+                    return mid;
+                }else {
+                    start = mid + 1;
+                }
             }
+
+
         }
 
         return -1;
