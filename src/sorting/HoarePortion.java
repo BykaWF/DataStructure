@@ -11,7 +11,7 @@ public class HoarePortion {
             System.out.print(x+" ");
     }
 
-    static int partition(int arr[], int l, int h)
+    static int partition(int[] arr, int l, int h)
     {
         int pivot=arr[l];
         int i=l-1,j=h+1;
@@ -19,9 +19,11 @@ public class HoarePortion {
             do{
                 i++;
             }while(arr[i]<pivot);
+
             do{
                 j--;
             }while(arr[j]>pivot);
+
             if(i>=j)return j; // there are cross each others
             int temp=arr[i];  // swap
             arr[i]=arr[j];
