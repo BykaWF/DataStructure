@@ -5,13 +5,13 @@ public class HoarePortion {
         int arr[] = new int[]{5,3,8,4,2,7,1,10};
 
         int n = arr.length;
-        partition(arr,0,n-1);
+        portion(arr,0,n-1);
 
         for(int x: arr)
             System.out.print(x+" ");
     }
 
-    static int partition(int[] arr, int l, int h)
+    static int portion(int[] arr, int l, int h)
     {
         int pivot=arr[l];
         int i=l-1,j=h+1;
