@@ -26,12 +26,56 @@ public class MyDs {
 //        printMiddle(head);
 //        printMid1(head);
 //        printNth(head,6);
-        printNth2(head, 2);
+//        printNth2(head, 2);
 
-
+//        head = reverse(head);
+//        head = reverseRec1(head);
+        head = reverse2(head,null);
 //       head = insertAtEnd(head,10);
         printList(head);
 
+    }
+
+    public static Node reverse(Node head) {
+        Node curr = head;
+        Node nextNode = null;
+        Node prev = null;
+
+        while (curr != null) {
+            nextNode = curr.next; // 2-> 3 -> 4 ....
+            curr.next = prev; // -> 1 -> null
+            prev = curr; // 1
+            curr = nextNode; // 2 -> 3 - > 4
+        }
+
+        return prev;
+    }
+
+    public static Node reverseRec1(Node head) {
+
+        if (head == null || head.next == null) {
+            System.out.println("Base case reached. Returning: " + head.val); // Print base case
+            return head;
+        }
+
+        System.out.println("Current head: " + head.val); // Print current head
+
+        Node restHead = reverseRec1(head.next);
+        Node restTail = head.next;
+        restTail.next = head;
+        head.next = null;
+
+        System.out.println("Reversed head: " + restHead.val); // Print reversed head
+
+        return restHead;
+    }
+
+    public static Node reverse2(Node curr, Node prev) {
+        if(curr == null) return prev;
+
+        Node next = curr.next;
+        curr.next = prev;
+        return reverse2(next,curr);
     }
 
     public static Node insertAtBegin(Node head, int val) {
@@ -224,7 +268,6 @@ public class MyDs {
 
         System.out.println(first.val);
     }
-
     public static void printList(Node head) {
         Node temp = head;
         while (temp != null) {
@@ -232,5 +275,4 @@ public class MyDs {
             temp = temp.next;
         }
     }
-
 }
