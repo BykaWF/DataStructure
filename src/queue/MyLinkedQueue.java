@@ -1,15 +1,13 @@
 package queue;
 
-import java.util.Iterator;
-
 import static java.util.Arrays.stream;
 
-class Node{
-    Node next;
+class NodeForQ {
+    NodeForQ next;
 
     int val;
 
-    public Node(int val){
+    public NodeForQ(int val){
         this.next = null;
         this.val = val;
     }
@@ -17,8 +15,8 @@ class Node{
 }
 public class MyLinkedQueue {
 
-    Node front;
-    Node rear;
+    NodeForQ front;
+    NodeForQ rear;
     int size;
 
     public MyLinkedQueue(){
@@ -28,7 +26,7 @@ public class MyLinkedQueue {
     }
 
     void enqueue(int val){
-        Node temp = new Node(val);
+        NodeForQ temp = new NodeForQ(val);
 
         if(front == null){
             front = rear = temp;
@@ -63,7 +61,7 @@ public class MyLinkedQueue {
     }
 
     void print(){
-        Node current = front;
+        NodeForQ current = front;
         while (current != null){
             System.out.println(current.val);
             current = current.next;
