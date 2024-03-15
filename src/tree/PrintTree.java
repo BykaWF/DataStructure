@@ -22,7 +22,7 @@ public class PrintTree {
 
        Queue<Node> q = new LinkedList<>();
        q.offer(root);
-       q.offer(null);
+
 
        while (q.size() > 1){
            Node curr = q.poll();
