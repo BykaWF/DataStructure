@@ -29,12 +29,26 @@ public class Delete {
         node.right.left = new Node(12);
         node.right.right = new Node(30);
 
+        Node tree = insert(node,4);
+
 //        delete(root, 50);
 //        printRoot(root);
-        Node floor = floor(node, 14);
-        Node ceil = ceil(node, 40);
-        System.out.println(floor.key);
-        System.out.println(ceil);
+//        Node floor = floor(node, 14);
+//        Node ceil = ceil(node, 40);
+//        System.out.println(floor.key);
+//        System.out.println(ceil);
+    }
+
+    private static Node insert(Node node, int x) {
+        if(node == null) return new Node(x);
+
+        if(node.key > x){
+            node.left = insert(node.left,x);
+        }else {
+            node.right = insert(node.right,x);
+        }
+
+        return node;
     }
 
     /**
