@@ -23,20 +23,25 @@ public class DFS {
 
     }
 
-    private static void dfs(ArrayList<ArrayList<Integer>> graph, int vertices, int source) {
+    private static void dfs(ArrayList<ArrayList<Integer>> adjacencyList, int vertices, int source) {
         boolean[] visited = new boolean[vertices];
+        int count = 0;
         for (int i = 0; i < vertices; i++) {
-            if(!visited[i])
-                DFSRec(graph,source,visited);
+            if(!visited[i]) {
+                count++;
+                DFSRec(adjacencyList, source, visited);
+            }
         }
+        System.out.println();
+        System.out.println(count);
     }
 
-    private static void DFSRec(ArrayList<ArrayList<Integer>> graph, int source, boolean[] visited) {
+    private static void DFSRec(ArrayList<ArrayList<Integer>> adjacencyList, int source, boolean[] visited) {
         visited[source] = true;
         System.out.print(source + " ");
-        for (int v : graph.get(source))
+        for (int v : adjacencyList.get(source))
             if(!visited[v])
-                DFSRec(graph,v,visited);
+                DFSRec(adjacencyList,v,visited);
     }
 
     private static void addNewEdge(ArrayList<ArrayList<Integer>> graph, int u, int v) {
